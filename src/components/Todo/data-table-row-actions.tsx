@@ -18,6 +18,7 @@ import {
 
 import { labels } from "./data";
 import { taskSchema } from "./schema";
+import { useTodos } from "@/app/TodoProvider";
 
 interface DataTableRowActionsProps<TData> {
   row: Row<TData>;
@@ -27,6 +28,7 @@ export function DataTableRowActions<TData>({
   row,
 }: DataTableRowActionsProps<TData>) {
   const task = taskSchema.parse(row.original);
+  const { todos, setTodos } = useTodos();
 
   return (
     <DropdownMenu>
@@ -57,7 +59,11 @@ export function DataTableRowActions<TData>({
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem
+          onClick={() => {
+            setTodos(todos.filter((t) => t.id !== task.id));
+          }}
+        >
           Delete
           <DropdownMenuShortcut>⌘⌫</DropdownMenuShortcut>
         </DropdownMenuItem>

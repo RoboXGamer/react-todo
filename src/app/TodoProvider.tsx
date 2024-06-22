@@ -12,7 +12,7 @@ const TodoContext = createContext<{
 // Create a provider component
 function TodoProvider({ children }: { children: React.ReactNode }) {
   const [todos, setTodos] = useState<Todos[]>([]);
-  console.log(todos);
+  // console.log(todos);
 
   return (
     <TodoContext.Provider value={{ todos, setTodos }}>
