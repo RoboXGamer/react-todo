@@ -4,6 +4,8 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+import '@/styles/globals.css'
 ---
 
 <!doctype html>
@@ -28,13 +30,15 @@ const { title } = Astro.props;
 	}
 	html{
 		font-family: system-ui, sans-serif;
-		color-scheme: light dark;
-		color: rgba(255, 255, 255, 0.87);
-		background-color: #242424;
 	}
 	body{
 		display:grid;
+		grid-template-rows: auto auto 1fr;
 		place-items: center;
 		min-height: 100vh;
+	}
+	html[class*="dark"]{
+		background-color: #000;
+		color: #fff;
 	}
 </style>

@@ -1,7 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import {Todo} from "../components/Todo"
 ---
 
 <Layout title="React Todo | Home">
-	<h1>React Todo | Home</h1>
+	<h1 class="text-3xl font-bold p-4">Welcome to React Todo!</h1>
+	
+	<Todo client:load/>
 </Layout>
+
