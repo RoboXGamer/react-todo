@@ -11,6 +11,9 @@ function TodoForm() {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     const taskTitle = form.get("todo") as string;
+    if (!taskTitle) {
+      return alert("Please enter a task title");
+    }
     const newTodo = TodoSchema.parse({
       id: Date.now().toString(),
       title: taskTitle,
